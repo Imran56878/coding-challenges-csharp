@@ -1,38 +1,60 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using CodePractice;
+using CodePractice.MathProblems;
 using CodePractice.StringsProblem;
 
-/*Console.WriteLine("Hello, World!");
-Console.WriteLine("Please enter the string data to get a reversal Output");
-string inputstring = Console.ReadLine();
-string reverseOutput = ReverseString.Reverse(inputstring);
-Console.WriteLine($"input for reveral is : {inputstring} and  reversed Output : {reverseOutput}");
-*/
-/*Console.WriteLine("Enter a number :");
-if (int.TryParse(Console.ReadLine(), out int number))
+Console.WriteLine("Select an option:");
+Console.WriteLine("1. Reverse a String");
+Console.WriteLine("2. Check if a Number is Prime");
+Console.WriteLine("3. Calculate Factorial");
+Console.WriteLine("4. Count Vowels and Consonants");
+Console.Write("Enter your choice (1-4): ");
+
+string choice = Console.ReadLine();
+
+switch (choice)
 {
-    bool isPrime = PrimeNumbers.IsPrimeNumber(number);
-    Console.WriteLine($"Given number is {number} and isPrime : {isPrime} ");
+    case "1":
+        Console.WriteLine("Enter a string to reverse:");
+        string inputstring = Console.ReadLine();
+        string reverseOutput = ReverseString.Reverse(inputstring);
+        Console.WriteLine($"input for reveral is : {inputstring} and  reversed Output : {reverseOutput}");
+        break;
+
+    case "2":
+        Console.WriteLine("Enter a number :");
+        if (int.TryParse(Console.ReadLine(), out int number))
+        {
+            bool isPrime = PrimeNumbers.IsPrimeNumber(number);
+            Console.WriteLine($"Given number is {number} and isPrime : {isPrime} ");
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a valid integer.");
+        }
+        break;
+
+    case "3":
+        Console.WriteLine("Enter a number :");
+        if (int.TryParse(Console.ReadLine(), out int factNumber))
+        {
+            int factorial = Factorial.NumberFactorial(factNumber);
+            Console.WriteLine($"Factorial of {factNumber} is: {factorial}");
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a valid integer.");
+        }
+        break;
+
+    case "4":
+        Console.WriteLine("Enter a string");
+        string vowelinput = Console.ReadLine();
+
+        (int vowels, int consonants) = VowelConsonantAnalyzer.CountVowelsAndConsonants(vowelinput);
+        Console.WriteLine($"Vowels: {vowels} and Consonants: {consonants}");
+        break;
+
+    default:
+        Console.WriteLine("Invalid choice. Please select between 1 and 4.");
+        break;
 }
-else
-{
-    Console.WriteLine("Invalid input. Please enter a valid integer.");
-}*/
-
-/*Console.WriteLine("Enter a number :");
-if (int.TryParse(Console.ReadLine(), out int number))
-{
-    int factorial = Factorial.NumberFactorial(number);
-    Console.WriteLine($"Given number is {number} and factorial : {factorial} ");
-}
-else
-{
-    Console.WriteLine("Invalid input. Please enter a valid integer.");
-}*/
-
-
-Console.WriteLine("Enter a string");
-string input = Console.ReadLine();
-
-(int vowels, int consonants) = VowelConsonantAnalyzer.CountVowelsAndConsonants(input);
-Console.WriteLine($"Vowels: {vowels} and Consonants: {consonants}");
