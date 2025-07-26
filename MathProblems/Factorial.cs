@@ -11,7 +11,6 @@ namespace CodePractice.MathProblems
 
         public static int NumberFactorial(int number)
         {
-
             if (number <= 1)
             {
                 return 1;

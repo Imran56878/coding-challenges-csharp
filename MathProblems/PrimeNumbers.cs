@@ -8,11 +8,8 @@ namespace CodePractice.MathProblems
 {
     public class PrimeNumbers
     {
-
-
         public static bool IsPrimeNumber(int Number)
         {
-
             if (Number <= 1)
             {
                 return false;
@@ -24,25 +21,20 @@ namespace CodePractice.MathProblems
                     return  false;
                 }
             }
-
             return true;
-
         }
 
         public static List<int> CheckAllPrime(int[] Numbers)
         {
             List<int> primeNumbers   = new List<int>();
-
             foreach (int number in Numbers)
             {
-
                bool IsPrime = IsPrimeNumber(number);
                 if (IsPrime)
                 {
                     primeNumbers.Add(number);
                 }
             }
-
             return primeNumbers;
         }
     }

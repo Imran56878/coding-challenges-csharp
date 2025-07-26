@@ -12,7 +12,6 @@ namespace CodePractice.StringsProblem
         public static (int VowelsCount, int ConsonantCount) CountVowelsAndConsonants(string words)
         {
             int VowelsCount = 0, ConsonantCount = 0;
-
             HashSet<char> vowels = new HashSet<char>()
             {
                 'A','E','I','O','U'
@@ -21,7 +20,6 @@ namespace CodePractice.StringsProblem
             {
                 if (char.IsLetter(c))
                 {
-
                     if (vowels.Contains(c))
                     {
                         VowelsCount++;
