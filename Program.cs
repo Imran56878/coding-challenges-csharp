@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using CodePractice.ArrayProblems;
 using CodePractice.MathProblems;
 using CodePractice.StringsProblem;
 
@@ -7,7 +8,9 @@ Console.WriteLine("1. Reverse a String");
 Console.WriteLine("2. Check if a Number is Prime");
 Console.WriteLine("3. Calculate Factorial");
 Console.WriteLine("4. Count Vowels and Consonants");
-Console.Write("Enter your choice (1-4): ");
+Console.WriteLine("5. Second Largest Element");
+Console.WriteLine("6. Palindrome Number");
+Console.Write("Enter your choice (1-6): ");
 
 string choice = Console.ReadLine();
 
@@ -52,6 +55,27 @@ switch (choice)
 
         (int vowels, int consonants) = VowelConsonantAnalyzer.CountVowelsAndConsonants(vowelinput);
         Console.WriteLine($"Vowels: {vowels} and Consonants: {consonants}");
+        break;
+
+    case "5":
+        Console.WriteLine("Enter numbers separated by space:");
+        string input = Console.ReadLine();
+         int [] numbers = input.Split(' ').Select(int.Parse).ToArray();
+        if (numbers.Length > 2)
+        {
+          int secondLargestNumber =  SecondLargestElement.FindSecondLargest(numbers);
+            Console.WriteLine($"Second largest element is : {secondLargestNumber}");
+        }
+        else 
+            Console.WriteLine("Please enter at least two numbers.");
+
+        break;
+
+    case "6":
+        Console.WriteLine("Enter a number to check if it is a palindrome:");
+        string palindromeInput = Console.ReadLine();
+        bool isPalindrome = PalindromeUtility.IsPalindrome(palindromeInput.ToLower());
+        Console.WriteLine($"The number {palindromeInput} and IsPalindrome: {isPalindrome}");
         break;
 
     default:
