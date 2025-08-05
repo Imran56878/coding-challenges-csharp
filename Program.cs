@@ -15,6 +15,7 @@ Console.WriteLine("7. Fibonacci Number");
 Console.WriteLine("8. Bubble Sort");
 Console.WriteLine("9. Duplicate Element in array");
 Console.WriteLine("10. GCD of Two numbers");
+Console.WriteLine("11.Two number swapping without using third one");
 Console.Write("Enter your choice (1-6): ");
 
 string choice = Console.ReadLine();
@@ -139,6 +140,22 @@ switch (choice)
         }
         break;
 
+    case "11":
+        Console.WriteLine("Enter two numbers to Number Swap (separated by space):");
+        string[] swapArr = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+        if (swapArr.Length == 2 &&
+            int.TryParse(swapArr[0], out int firstValue) &&
+            int.TryParse(swapArr[1], out int secondValue))
+        {
+            SwapNumbers.SwapWithoutTemp(firstValue, secondValue);
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter two valid integers separated by space.");
+        }
+        Console.WriteLine("Exiting the program.");
+        break;
 
     default:
         Console.WriteLine("Invalid choice. Please select between 1 and 4.");
