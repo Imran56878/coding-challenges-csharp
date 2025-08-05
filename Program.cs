@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using CodePractice.ArrayProblems;
 using CodePractice.MathProblems;
+using CodePractice.SortingAlgorithms;
 using CodePractice.StringsProblem;
 
 Console.WriteLine("Select an option:");
@@ -10,6 +11,7 @@ Console.WriteLine("3. Calculate Factorial");
 Console.WriteLine("4. Count Vowels and Consonants");
 Console.WriteLine("5. Second Largest Element");
 Console.WriteLine("6. Palindrome Number");
+Console.WriteLine("7. Fibonacci Number");
 Console.Write("Enter your choice (1-6): ");
 
 string choice = Console.ReadLine();
@@ -60,13 +62,13 @@ switch (choice)
     case "5":
         Console.WriteLine("Enter numbers separated by space:");
         string input = Console.ReadLine();
-         int [] numbers = input.Split(' ').Select(int.Parse).ToArray();
+        int[] numbers = input.Split(' ').Select(int.Parse).ToArray();
         if (numbers.Length > 2)
         {
-          int secondLargestNumber =  SecondLargestElement.FindSecondLargest(numbers);
+            int secondLargestNumber = SecondLargestElement.FindSecondLargest(numbers);
             Console.WriteLine($"Second largest element is : {secondLargestNumber}");
         }
-        else 
+        else
             Console.WriteLine("Please enter at least two numbers.");
 
         break;
@@ -77,6 +79,46 @@ switch (choice)
         bool isPalindrome = PalindromeUtility.IsPalindrome(palindromeInput.ToLower());
         Console.WriteLine($"The number {palindromeInput} and IsPalindrome: {isPalindrome}");
         break;
+
+    case "7":
+        Console.WriteLine("Enter the number of terms for Fibonacci series:");
+        if (int.TryParse(Console.ReadLine(), out int n))
+        {
+            FibonacciUtils.PrintFibonacciIterative(n);
+            FibonacciUtils.PrintFibonacciRecursive(n);
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a valid integer.");
+        }
+        break;
+
+        case "8":
+        Console.WriteLine("Enter numbers separated by space to Sort using Bubble");
+        string inputArray = Console.ReadLine();
+
+        int[] arraysort = Array.ConvertAll(inputArray.Split(' ', StringSplitOptions.RemoveEmptyEntries), int.Parse);
+
+        // Call the method to find duplicates
+         BubbleSort.Sort(arraysort);
+
+        break;
+
+    case "9":
+        Console.WriteLine("Enter numbers separated by space to find duplicates:");
+        string duplicateInput = Console.ReadLine();
+
+        int[] duplicateArray = Array.ConvertAll(duplicateInput.Split(' ', StringSplitOptions.RemoveEmptyEntries), int.Parse);
+
+        // Call the method to find duplicates
+        var response = DuplicateFinder.FindDuplicates(duplicateArray);
+        foreach (var item in response)
+        {
+            Console.WriteLine($"Duplicate number: {item}");
+        }
+        break;
+
+
 
     default:
         Console.WriteLine("Invalid choice. Please select between 1 and 4.");
