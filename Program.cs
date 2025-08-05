@@ -12,6 +12,9 @@ Console.WriteLine("4. Count Vowels and Consonants");
 Console.WriteLine("5. Second Largest Element");
 Console.WriteLine("6. Palindrome Number");
 Console.WriteLine("7. Fibonacci Number");
+Console.WriteLine("8. Bubble Sort");
+Console.WriteLine("9. Duplicate Element in array");
+Console.WriteLine("10. GCD of Two numbers");
 Console.Write("Enter your choice (1-6): ");
 
 string choice = Console.ReadLine();
@@ -91,16 +94,17 @@ switch (choice)
         {
             Console.WriteLine("Invalid input. Please enter a valid integer.");
         }
+
         break;
 
-        case "8":
+    case "8":
         Console.WriteLine("Enter numbers separated by space to Sort using Bubble");
         string inputArray = Console.ReadLine();
 
         int[] arraysort = Array.ConvertAll(inputArray.Split(' ', StringSplitOptions.RemoveEmptyEntries), int.Parse);
 
         // Call the method to find duplicates
-         BubbleSort.Sort(arraysort);
+        BubbleSort.Sort(arraysort);
 
         break;
 
@@ -118,6 +122,22 @@ switch (choice)
         }
         break;
 
+    case "10":
+        Console.WriteLine("Enter two numbers to get the GCD (separated by space):");
+        string[] inputs = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+        if (inputs.Length == 2 &&
+            int.TryParse(inputs[0], out int a) &&
+            int.TryParse(inputs[1], out int b))
+        {
+            int gcd = GCDCalculator.CalculateGCD(a, b);
+            Console.WriteLine($"GCD of {a} and {b} is: {gcd}");
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter two valid integers separated by space.");
+        }
+        break;
 
 
     default:
