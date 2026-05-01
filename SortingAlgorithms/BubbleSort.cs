@@ -11,7 +11,11 @@ namespace CodePractice.SortingAlgorithms
 
         public static void Sort(int [] arr)
         {
-            arr = new int[] { 5, 3, 8, 9, 2 };
+            if (arr == null || arr.Length == 0)
+            {
+                Console.WriteLine("Nothing to sort (array is null or empty).");
+                return;
+            }
             for (int i = 0; i<arr.Length;i++)
             {
 
