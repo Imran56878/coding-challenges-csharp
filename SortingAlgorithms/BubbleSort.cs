@@ -41,6 +41,8 @@ namespace CodePractice.SortingAlgorithms
                     break;
                 }
             }
+            // Print sorted array so callers (like Program.cs) show result
+            Console.WriteLine("Sorted array (Bubble Sort): " + string.Join(' ', arr));
         }
     }
 }
